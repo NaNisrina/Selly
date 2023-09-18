@@ -9,16 +9,16 @@
 
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center">
-                <h1 class="text-center display-5 fw-bolder text-white mb-2">Vestar Menu</h1>
+                <h1 class="text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">Vestar Menu</h1>
 
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
 
-                        <h1 class="display-5 fw-bolder text-white mb-2">Salad</h1>
+                        <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">Salad</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
@@ -36,9 +36,9 @@
                     <div class="my-5 text-center text-xl-start">
                         <h1 class="display-5 fw-bolder text-white mb-2">Nugget</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
@@ -52,9 +52,9 @@
                     <div class="my-5 text-center text-xl-start">
                         <h1 class="display-5 fw-bolder text-white mb-2">Commission</h1>
                         <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
     </header>
 
     <!-- Features section-->
-    <section class="py-5" id="features">
+    <section class="py-5 bg-success-subtle" id="features">
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -108,25 +108,6 @@
             </div>
         </div>
     </section>
-
-            <!-- Call to action-->
-            <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-                <div
-                    class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                    <div class="mb-4 mb-xl-0">
-                        <div class="fs-3 fw-bold text-white">New products, delivered to you.</div>
-                        <div class="text-white-50">Sign up for our newsletter for the latest updates.</div>
-                    </div>
-                    <div class="ms-xl-4">
-                        <div class="input-group mb-2">
-                            <input class="form-control" type="text" placeholder="Email address..."
-                                aria-label="Email address..." aria-describedby="button-newsletter" />
-                            <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
-                        </div>
-                        <div class="small text-white-50">We care about privacy, and will never share your data.</div>
-                    </div>
-                </div>
-            </aside>
         </div>
     </section>
     <!-- /Content -->
