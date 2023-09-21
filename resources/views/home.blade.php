@@ -4,41 +4,119 @@
 
 @section('page_content')
 
+    <!-- Carousel -->
+    <header class="py-5 bg-success-subtle">
+        <div class="container container_center px-5">
+
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-9">
+
+                    <div class="text-center my-5">
+
+                        <div id="carouselExampleCaptions" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="/CoverDescription">
+                                        <img src="/img/im fine.jpg" class="d-block w-100 image_carousel" alt="...">
+                                    </a>
+                                    <div class="carousel-caption d-md-block">
+                                        <h5>Story 1</h5>
+                                        <p>This is Story 1 description and synopsis.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="/CoverDescription">
+                                        <img src="/img/samoyed.jpg" class="d-block w-100 image_carousel" alt="...">
+                                    </a>
+                                    <div class="carousel-caption d-md-block">
+                                        <h5>Story 2</h5>
+                                        <p>This is Story 2 description and synopsis.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="/CoverDescription">
+                                        <img src="/img/what duck.jpg" class="d-block w-100 image_carousel" alt="...">
+                                    </a>
+                                    <div class="carousel-caption d-md-block">
+                                        <h5>Story 3</h5>
+                                        <p>This is Story 3 description and synopsis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- Content -->
     <header class="bg-dark py-5">
 
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center">
-                <h1 class="text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">Vestar Menu</h1>
+                <h1 class="text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">
+                    Vestar Menu
+                </h1>
 
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
 
-                        <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">Salad</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
+                        <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
+                            Salad
+                        </h1>
+                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                            responsive mobile-first
+                            sites with Bootstrap, the world's most popular front-end open source
+                            toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                                Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
-                        src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
+                </div>
             </div>
         </div>
 
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center">
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
-                    src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
+                </div>
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
                         <h1 class="display-5 fw-bolder text-white mb-2">Nugget</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
+                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                            responsive mobile-first
+                            sites with Bootstrap, the world's most popular front-end open source
+                            toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                                Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
@@ -51,23 +129,27 @@
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
                         <h1 class="display-5 fw-bolder text-white mb-2">Commission</h1>
-                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                            sites with Bootstrap, the world's most popular front-end open source toolkit!</p>
+                        <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                            responsive mobile-first
+                            sites with Bootstrap, the world's most popular front-end open source
+                            toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                                Started</a>
                             <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
-                        src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
+                </div>
             </div>
         </div>
 
     </header>
 
     <!-- Features section-->
-    <section class="py-5 bg-success-subtle" id="features">
+    {{-- <section class="py-5 bg-success-subtle" id="features">
         <div class="container px-5 my-5">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -107,8 +189,8 @@
                 </div>
             </div>
         </div>
-    </section>
-        </div>
+    </section> --}}
+    </div>
     </section>
     <!-- /Content -->
 
