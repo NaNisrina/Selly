@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    {{-- CSS Bootstrap --}}
+    <!-- CSS BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    {{-- FONT --}}
+    <!-- FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {{-- ANIMATE CSS --}}
+    <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
 
-    {{-- CSS --}}
+    <!-- CSS -->
     <link rel="stylesheet" href="css/template.css">
 
     <title>@yield('page_title')</title>
@@ -38,12 +38,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Penjualan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Stok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('stok.index') }}">Stok</a></li>
                         <li class="nav-item"><a class="nav-link" href="">Test</a></li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownKeuangan" href="/"
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownKeuangan" href=""
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Keuangan</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                                 <li><a class="dropdown-item" href="">Pemasukan</a></li>
@@ -68,26 +69,29 @@
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto">
-                    <div class="small m-0 text-white">Copyright &copy; Your Website 2023</div>
+                    <div class="small m-0 text-white">Copyright &copy; Selly 2023</div>
                 </div>
                 <div class="col-auto">
-                    <a class="link-light small" href="#!">Privacy</a>
+                    <a class="link-light small" href="#">Website</a>
                     <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="#!">Terms</a>
+                    <a class="link-light small" href="#">For</a>
                     <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="#!">Contact</a>
+                    <a class="link-light small" href="#">Sales</a>
                 </div>
             </div>
         </div>
     </footer>
     <!-- /Footer -->
 
-    {{-- JAVASCRIPT BOOTSTRAP --}}
+    <!-- JAVASCRIPT BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-    {{-- JS --}}
+    <!-- JS FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/2cef0251ec.js" crossorigin="anonymous"></script>
+
+    <!-- JS -->
     <script src="js/template.js"></script>
 
 

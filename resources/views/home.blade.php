@@ -5,10 +5,15 @@
 @section('page_content')
 
     <!-- Carousel -->
-    <header class="py-5 bg-success-subtle">
+    <header class="bg-dark">
         <div class="container container_center px-5">
 
             <div class="row gx-5 justify-content-center">
+
+                <h1 class="my-5 text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">
+                    Vestar Menu
+                </h1>
+
                 <div class="col-lg-9">
 
                     <div class="text-center my-5">
@@ -23,32 +28,94 @@
                                     aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
+
                                 <div class="carousel-item active">
-                                    <a href="/CoverDescription">
-                                        <img src="/img/im fine.jpg" class="d-block w-100 image_carousel" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-md-block">
-                                        <h5>Story 1</h5>
-                                        <p>This is Story 1 description and synopsis.</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="/CoverDescription">
-                                        <img src="/img/samoyed.jpg" class="d-block w-100 image_carousel" alt="...">
-                                    </a>
-                                    <div class="carousel-caption d-md-block">
-                                        <h5>Story 2</h5>
-                                        <p>This is Story 2 description and synopsis.</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <a href="/CoverDescription">
+
+                                    <a href="/">
                                         <img src="/img/what duck.jpg" class="d-block w-100 image_carousel" alt="...">
                                     </a>
+
                                     <div class="carousel-caption d-md-block">
-                                        <h5>Story 3</h5>
-                                        <p>This is Story 3 description and synopsis.</p>
+
+                                        <div class="col-lg-8 col-xl-7 col-xxl-6 py-md-5 py-lg-7 overlay-content">
+                                            <div class="my-5 text-center text-xl-start">
+
+                                                <h1
+                                                    class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
+                                                    Salad
+                                                </h1>
+                                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                                                    responsive mobile-first
+                                                    sites with Bootstrap, the world's most popular front-end open source
+                                                    toolkit!</p>
+                                                <div
+                                                    class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                    <a class="btn btn-outline-light btn-lg px-4" href="#Salad">Learn
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
+
+                                </div>
+
+                                <div class="carousel-item">
+                                    <a href="/">
+                                        <img src="/img/samoyed.jpg" class="d-block w-100 image_carousel" alt="...">
+                                    </a>
+
+                                    <div class="carousel-caption d-md-block">
+
+                                        <div class="col-lg-8 col-xl-7 col-xxl-6 py-md-5 py-lg-7 overlay-content">
+                                            <div class="my-5 text-center text-xl-start">
+
+                                                <h1
+                                                    class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
+                                                    Nugget
+                                                </h1>
+                                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                                                    responsive mobile-first
+                                                    sites with Bootstrap, the world's most popular front-end open source
+                                                    toolkit!</p>
+                                                <div
+                                                    class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                    <a class="btn btn-outline-light btn-lg px-4" href="#Salad">Learn
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="/">
+                                        <img src="/img/im fine.jpg" class="d-block w-100 image_carousel" alt="...">
+                                    </a>
+
+                                    <div class="carousel-caption d-md-block">
+
+                                        <div class="col-lg-8 col-xl-7 col-xxl-6 py-md-5 py-lg-7 overlay-content">
+                                            <div class="my-5 text-center text-xl-start">
+
+                                                <h1
+                                                    class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
+                                                    Commission
+                                                </h1>
+                                                <p class="lead fw-normal text-white-50 mb-4">Quickly design and customize
+                                                    responsive mobile-first
+                                                    sites with Bootstrap, the world's most popular front-end open source
+                                                    toolkit!</p>
+                                                <div
+                                                    class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                                    <a class="btn btn-outline-light btn-lg px-4" href="#Salad">Learn
+                                                        More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -71,13 +138,10 @@
     </header>
 
     <!-- Content -->
-    <header class="bg-dark py-5">
+    <section class="bg-dark py-5">
 
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center">
-                <h1 class="text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">
-                    Vestar Menu
-                </h1>
 
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
                     <div class="my-5 text-center text-xl-start">
@@ -90,9 +154,9 @@
                             sites with Bootstrap, the world's most popular front-end open source
                             toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get
                                 Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="/">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -115,9 +179,9 @@
                             sites with Bootstrap, the world's most popular front-end open source
                             toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get
                                 Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="/">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -134,9 +198,9 @@
                             sites with Bootstrap, the world's most popular front-end open source
                             toolkit!</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="#features">Get
+                            <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get
                                 Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="/">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +210,7 @@
             </div>
         </div>
 
-    </header>
+    </section>
 
     <!-- Features section-->
     {{-- <section class="py-5 bg-success-subtle" id="features">
