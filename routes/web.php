@@ -19,7 +19,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('/penjualan', PenjualanController::class);
 Route::resource('/stok', StokController::class);
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
