@@ -1,10 +1,18 @@
-/* body {
-    background-color: skyblue;
-} */
+body {
+    background-color: #212529 !important;
+    /* background-color: skyblue; */
+}
 
 /* Table */
 .t_border {
     border-radius: 6px;
+}
+.img_table {
+    background-position: center;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    background-size: cover;
 }
 
 /* Form */
@@ -20,8 +28,8 @@
 
 html, body {
     height: 100%;
-    background-color: #152733;
-    /* overflow: hidden; */
+    background-color: #212529;
+    overflow: hidden;
 }
 
 
@@ -157,3 +165,5 @@ html, body {
 .valid-feedback{
    color: #2acc80;
 }
+
+/* Custom Modal */

@@ -140,12 +140,16 @@
     <!-- Content -->
     <section class="bg-dark py-5">
 
-        @foreach ($stocks as $stock)   
+        <h1 class="my-5 text-center display-5 fw-bolder text-white mb-2 animate__animated animate__zoomIn">
+            Vestar Menu
+        </h1>
+
+        @foreach ($stocks as $stock)
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center">
 
                     <div class="col-lg-8 col-xl-7 col-xxl-6">
-                        <div class="my-5 text-center text-xl-start">
+                        <div class="my-5 text-xl-start">
 
                             <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
                                 {{ $stock->product_name }}

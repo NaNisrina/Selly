@@ -41,7 +41,7 @@ class StockController extends Controller
 
         $validatedData = $request->validate([
             'product_img' => 'required|mimes:jpg, png, jpeg',
-            'product_name' => 'required||min:3|max:15',
+            'product_name' => 'required||min:3|max:50',
             'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
             'price' => 'required|regex:/^[1-9][0-9]+$/|not_in:0'
         ], $message);
@@ -90,9 +90,9 @@ class StockController extends Controller
 
         $validatedData = $request->validate([
             'product_img' => 'mimes:jpg, png, jpeg',
-            'product_name' => 'required|min:3|max:15',
+            'product_name' => 'required|min:3|max:50',
             'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
-            'price' => 'required|regex:/^[1-9][0-9]+$/|not_in:0'
+            'price' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
         ], $message);
 
         if($request->file('product_img')) {
@@ -107,7 +107,7 @@ class StockController extends Controller
         // dd($validatedData);
 
         Stock::where('id', $stock->id)->update($validatedData);
-        
+
         return redirect()->route('stock.index');
     }
 

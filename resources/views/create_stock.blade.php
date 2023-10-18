@@ -41,7 +41,7 @@
                                                     @csrf
                                                     <div class="col-md-12 mb-3" style="width: 22rem;">
                                                         <img class="img-preview img-fluid mb-3 col-sm-5">
-                                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" multiple required>
+                                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" onchange="previewImage()" multiple required>
                                                         {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
                                                         @error('product_img')
                                                             <div class="invalid-feedback">
@@ -133,7 +133,7 @@
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
             }
-        } 
+        }
     </script>
 
 @endsection

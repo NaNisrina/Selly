@@ -18,7 +18,10 @@
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
     <title>@yield('page_title')</title>
 </head>
@@ -41,7 +44,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('stock.index') }}">Stok</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Pengeluaran</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('pengeluaran.index') }}">Pengeluaran</a></li>
 
                         {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownKeuangan" href=""

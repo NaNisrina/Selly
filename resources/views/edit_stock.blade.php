@@ -4,7 +4,7 @@
 @section('page_content')
 
     <!-- Content -->
-    <section class="bg-success-subtle py-5">
+    <section class="bg-dark text-white py-5">
 
         <div class="container container_center px-5">
 
@@ -20,7 +20,7 @@
                     <div class="card-border-0">
                         <!-- Cardhead -->
                         <div class="card-header text-center">
-                            <a href="{{ route('stock.index') }}" class="btn btn-outline-dark mx-2">
+                            <a href="{{ route('stock.index') }}" class="btn btn-outline-light mx-2">
                                 <i class="fas fa-arrow-left"></i>
                                 Back to Stok
                             </a>
@@ -135,7 +135,7 @@
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
             }
-        } 
+        }
     </script>
 
 @endsection
