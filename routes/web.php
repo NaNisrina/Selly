@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PenjualanController;
-use App\Http\Controllers\StokController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::resource('/penjualan', PenjualanController::class);
-Route::resource('/stok', StokController::class);
+Route::resource('/penjualan', SaleController::class);
+Route::resource('/stock', StockController::class);

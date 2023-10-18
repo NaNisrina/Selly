@@ -20,7 +20,7 @@
                     <div class="card-border-0">
                         <!-- Cardhead -->
                         <div class="card-header text-center">
-                            <a href="{{ route('stok.index') }}" class="btn btn-outline-dark mx-2">
+                            <a href="{{ route('stock.index') }}" class="btn btn-outline-dark mx-2">
                                 <i class="fas fa-arrow-left"></i>
                                 Back to Stok
                             </a>
@@ -37,27 +37,32 @@
                                                 <h3>Create New Data</h3>
                                                 <p>Fill in the data below.</p>
 
-                                                <form class="requires-validation" novalidate>
+                                                <form action="{{ route('stock.store') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="col-md-12 mb-3" style="width: 22rem;">
+                                                        <img class="img-preview img-fluid mb-3 col-sm-5">
+                                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" multiple required>
+                                                        {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
+                                                        @error('product_img')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                    </div>
 
                                                     <div class="col-md-12" style="width: 22rem;">
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div>
-                                                        <input class="form-control" type="text" name="name"
+                                                        <input class="form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
                                                             placeholder="Name" required>
-                                                        <div class="valid-feedback">Name field is valid!</div>
-                                                        <div class="invalid-feedback">Name field cannot be blank!</div>
+                                                            @error('product_name')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <select class="form-select mt-3" style="width: 22rem;" required>
-                                                            <option selected disabled value="">Product</option>
-                                                            <option value="jweb">Salad</option>
-                                                            <option value="sweb">Nugget</option>
-                                                            <option value="pmanager">Commission</option>
-                                                        </select>
                                                     </div>
 
                                                     <div class="form-outline mt-3" style="width: 22rem;">
@@ -65,8 +70,13 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">Pc</div>
                                                             </div>
-                                                        <input type="number" id="typeNumber" class="form-control"
+                                                        <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
                                                             placeholder="Quantity" required>
+                                                            @error('quantity')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -75,30 +85,14 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">Rp</div>
                                                             </div>
-                                                            <input type="number" class="form-control"
-                                                                id="inlineFormInputGroup" placeholder="Price">
+                                                            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"
+                                                                id="price" placeholder="Price">
+                                                                @error('price')
+                                                                    <div class="invalid-feedback">
+                                                                        {{ $message }}
+                                                                    </div>
+                                                                @enderror
                                                         </div>
-                                                    </div>
-
-                                                    <div class="col-md-12 mt-3">
-                                                        <label class="mb-3 mr-1" for="status">Status: </label>
-
-                                                        <input type="radio" class="btn-check" name="status"
-                                                            id="Not Paid" autocomplete="off" required>
-                                                        <label class="btn btn-sm btn-outline-danger" for="Not Paid">Not
-                                                            Paid</label>
-
-                                                        <input type="radio" class="btn-check" name="status"
-                                                            id="Minus" autocomplete="off" required>
-                                                        <label class="btn btn-sm btn-outline-warning"
-                                                            for="Minus">Minus</label>
-
-                                                        <input type="radio" class="btn-check" name="status"
-                                                            id="Paid" autocomplete="off" required>
-                                                        <label class="btn btn-sm btn-outline-success"
-                                                            for="Paid">Paid</label>
-                                                        <div class="valid-feedback mv-up">You selected a status!</div>
-                                                        <div class="invalid-feedback mv-up">Please select a status!</div>
                                                     </div>
 
                                                     <div class="form-button mt-1">
@@ -124,5 +118,22 @@
 
     </section>
     <!-- /Content -->
+
+    <script>
+        // menampilkan gambar
+        function previewImage() {
+            const img = document.querySelector('#product_img');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(img.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        } 
+    </script>
 
 @endsection

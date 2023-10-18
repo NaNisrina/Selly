@@ -40,10 +40,10 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('stok.index') }}">Stok</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Test</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('stock.index') }}">Stok</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Pengeluaran</a></li>
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownKeuangan" href=""
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Keuangan</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -51,7 +51,7 @@
                                 <li><a class="dropdown-item" href="">Pengeluaran</a></li>
                                 <li><a class="dropdown-item" href="">Alur Kas</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>

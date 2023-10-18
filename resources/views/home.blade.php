@@ -5,7 +5,7 @@
 @section('page_content')
 
     <!-- Carousel -->
-    <header class="bg-dark">
+    {{-- <header class="bg-dark">
         <div class="container container_center px-5">
 
             <div class="row gx-5 justify-content-center">
@@ -135,39 +135,41 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> --}}
 
     <!-- Content -->
     <section class="bg-dark py-5">
 
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center">
+        @foreach ($stocks as $stock)   
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
 
-                <div class="col-lg-8 col-xl-7 col-xxl-6">
-                    <div class="my-5 text-center text-xl-start">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
 
-                        <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
-                            Salad
-                        </h1>
-                        <p class="lead fw-normal text-white mb-4">Quickly design and customize
-                            responsive mobile-first
-                            sites with Bootstrap, the world's most popular front-end open source
-                            toolkit!</p>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                            <p class="lead fw-normal text-white mb-4 border border-white px-4 py-2 rounded">Stok : 100 pcs</p>
-                            {{-- <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get
-                                Started</a>
-                            <a class="btn btn-outline-light btn-lg px-4" href="/">Learn More</a> --}}
+                            <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
+                                {{ $stock->product_name }}
+                            </h1>
+                            <p class="lead fw-normal text-white mb-4">Quickly design and customize
+                                responsive mobile-first
+                                sites with Bootstrap, the world's most popular front-end open source
+                                toolkit!</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                <p class="lead fw-normal text-white mb-4 border border-white px-4 py-2 rounded">Stok : {{ $stock->quantity }} pcs</p>
+                                {{-- <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get
+                                    Started</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="/">Learn More</a> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-                    <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                        <img class="img-fluid rounded-3 my-5" src="{{ asset('storage/' . $stock->product_img) }}" alt="..." />
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
 
-        <div class="container px-5">
+        {{-- <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center">
                 <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
                     <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
@@ -209,7 +211,7 @@
                     <img class="img-fluid rounded-3 my-5" src="/img/what duck.jpg" alt="..." />
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </section>
 
