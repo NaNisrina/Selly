@@ -42,6 +42,7 @@ class StockController extends Controller
         $validatedData = $request->validate([
             'product_img' => 'required|mimes:jpg, png, jpeg',
             'product_name' => 'required||min:3|max:50',
+            'product_description' => 'required|min:3|max:255',
             'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
             'price' => 'required|regex:/^[1-9][0-9]+$/|not_in:0'
         ], $message);
@@ -91,6 +92,7 @@ class StockController extends Controller
         $validatedData = $request->validate([
             'product_img' => 'mimes:jpg, png, jpeg',
             'product_name' => 'required|min:3|max:50',
+            'product_description' => 'required|min:3|max:255',
             'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
             'price' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
         ], $message);

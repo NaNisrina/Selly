@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('product_img');
             $table->string('product_name');
+            $table->string('product_description');
             $table->decimal('price', 12, 2);
             $table->integer('quantity');
             $table->decimal('total', 12, 2);

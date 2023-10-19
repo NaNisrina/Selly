@@ -95,7 +95,7 @@
     <script src="https://kit.fontawesome.com/2cef0251ec.js" crossorigin="anonymous"></script>
 
     <!-- JS -->
-    <script src="{{ asset('js/template.js') }}"></script>
+    <script src="{{asset('js/template.js')}}"></script>
 
 
 </body>

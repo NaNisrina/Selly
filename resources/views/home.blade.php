@@ -154,10 +154,9 @@
                             <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
                                 {{ $stock->product_name }}
                             </h1>
-                            <p class="lead fw-normal text-white mb-4">Quickly design and customize
-                                responsive mobile-first
-                                sites with Bootstrap, the world's most popular front-end open source
-                                toolkit!</p>
+                            <p class="lead fw-normal text-white mb-4">
+                                {{ $stock->product_description }}
+                            </p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                 <p class="lead fw-normal text-white mb-4 border border-white px-4 py-2 rounded">Stok : {{ $stock->quantity }} pcs</p>
                                 {{-- <a class="btn btn-success btn-lg px-4 me-sm-3" href="/">Get

@@ -4,14 +4,14 @@
 @section('page_content')
 
     <!-- Content -->
-    <section class="bg-dark  py-5">
+    <section class="bg-dark py-5">
 
         <div class="container container_center px-5">
 
             <div class="row gx-5 justify-content-center">
 
                 <!-- Title -->
-                <h1 class="text-white text-center display-5 fw-bolder mb-2 animate__animated animate__zoomIn my-3">
+                <h1 class="text-white text-center display-5 fw-bolder animate__animated animate__zoomIn">
                     Stok
                 </h1>
 
@@ -31,10 +31,10 @@
                                 <form action="{{ route('stock.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-outline mb-2">
-                                        <label for="image">Image</label>
+                                        <label for="product_img">Product Image</label>
 
-                                        <img class="img-preview img-fluid mb-3 col-sm-5">
                                         <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" onchange="previewImage()" multiple required>
+                                        <img class="img-preview img-fluid mt-3 mb-3 col-sm-5">
                                         {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
                                         @error('product_img')
                                             <div class="invalid-feedback">
@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="form-outline mb-2">
-                                        <label for="name">Name</label>
+                                        <label for="product_name">Product Name</label>
 
                                         {{-- <div class="input-group mb-2">
                                             <div class="input-group-prepend">
@@ -53,6 +53,23 @@
                                         <input class="form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
                                             placeholder="enter name..." required>
                                             @error('product_name')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        {{-- </div> --}}
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <label for="product_description">Product Description</label>
+
+                                        {{-- <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">@</div>
+                                            </div> --}}
+                                        <input class="form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
+                                            placeholder="enter name..." required>
+                                            @error('product_description')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -94,7 +111,7 @@
                                         {{-- </div> --}}
                                     </div>
 
-                                    <div class="form-button mt-1 text-end">
+                                    <div class="form-button mt-3 text-end">
                                         <button id="submit" type="submit" class="btn btn-success">
                                             Create
                                             {{-- <i class="fas fa-circle-plus"></i> --}}
@@ -131,17 +148,17 @@
 
                                                         @foreach ($stocks as $stock)
                                                             <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td class="text-start">
+                                                                <td class="align-middle">{{ $loop->iteration }}</td>
+                                                                <td class="align-middle">
                                                                     <img class="img_table" src="{{ asset('storage/' . $stock->product_img) }}" alt="" width="100px" height="80px">
                                                                     <p class="d-inline-block align-middle mb-0 ms-3">
                                                                         <span class="text-white">{{ $stock->product_name }}</span>
                                                                     </p>
                                                                 </td>
-                                                                <td>Rp{{ number_format($stock->price, 2, ',', '.') }}</td>
-                                                                <td>{{ $stock->quantity }}</td>
-                                                                <td>Rp{{ number_format($stock->total, 2, ',', '.') }}</td>
-                                                                <td>
+                                                                <td class="align-middle">Rp{{ number_format($stock->price, 2, ',', '.') }}</td>
+                                                                <td class="align-middle">{{ $stock->quantity }}</td>
+                                                                <td class="align-middle">Rp{{ number_format($stock->total, 2, ',', '.') }}</td>
+                                                                <td class="align-middle">
                                                                     <a href="{{ route('stock.edit', $stock->id) }}"
                                                                         class="btn btn-light">
                                                                         {{-- text-dark border-0 --}}
