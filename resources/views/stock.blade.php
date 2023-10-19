@@ -26,101 +26,107 @@
                             </a> --}}
 
                             <div class="form-items justify-content-center">
-                                <p class="text-center my-0">Create New Stock:</p>
 
-                                <form action="{{ route('stock.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-outline mb-2">
-                                        <label for="product_img">Product Image</label>
+                                <div class="form-content">
+                                    <div class="form-items">
+                                        <p class="text-center my-0">Create New Stock:</p>
 
-                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" onchange="previewImage()" multiple required>
-                                        <img class="img-preview img-fluid mt-3 mb-3 col-sm-5">
-                                        {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
-                                        @error('product_img')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
+                                        <form action="{{ route('stock.store') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-outline mb-2">
+                                                <label for="product_img">Product Image</label>
 
-                                    <div class="form-outline mb-2">
-                                        <label for="product_name">Product Name</label>
-
-                                        {{-- <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">@</div>
-                                            </div> --}}
-                                        <input class="form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
-                                            placeholder="enter name..." required>
-                                            @error('product_name')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        {{-- </div> --}}
-                                    </div>
-
-                                    <div class="form-outline mb-2">
-                                        <label for="product_description">Product Description</label>
-
-                                        {{-- <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">@</div>
-                                            </div> --}}
-                                        <input class="form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
-                                            placeholder="enter name..." required>
-                                            @error('product_description')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        {{-- </div> --}}
-                                    </div>
-
-                                    <div class="form-outline mb-2">
-                                        <label for="quantity">Quantity</label>
-
-                                        {{-- <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">Pc</div>
-                                            </div> --}}
-                                        <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
-                                            placeholder="enter quantity..." required>
-                                            @error('quantity')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        {{-- </div> --}}
-                                    </div>
-
-                                    <div class="form-outline mb-2">
-                                        <label for="price">Price</label>
-
-                                        {{-- <div class="input-group mb-2"> --}}
-                                            {{-- <div class="input-group-prepend">
-                                                <div class="input-group-text">Rp</div>
-                                            </div> --}}
-                                            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"
-                                                id="price" placeholder="enter price..."  required>
-                                                @error('price')
+                                                <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" onchange="previewImage()" multiple required>
+                                                <img class="img-preview img-fluid mt-3 mb-3 col-sm-5">
+                                                {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
+                                                @error('product_img')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
-                                        {{-- </div> --}}
-                                    </div>
+                                            </div>
 
-                                    <div class="form-button mt-3 text-end">
-                                        <button id="submit" type="submit" class="btn btn-success">
-                                            Create
-                                            {{-- <i class="fas fa-circle-plus"></i> --}}
-                                        </button>
-                                        <button id="reset" type="reset" class="btn btn-primary">
-                                            Reset
-                                        </button>
+                                            <div class="form-outline mb-2">
+                                                <label for="product_name">Product Name</label>
+
+                                                {{-- <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">@</div>
+                                                    </div> --}}
+                                                <input class="form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
+                                                    placeholder="enter name..." required>
+                                                    @error('product_name')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                {{-- </div> --}}
+                                            </div>
+
+                                            <div class="form-outline mb-2">
+                                                <label for="product_description">Product Description</label>
+
+                                                {{-- <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">@</div>
+                                                    </div> --}}
+                                                <input class="form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
+                                                    placeholder="enter name..." required>
+                                                    @error('product_description')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                {{-- </div> --}}
+                                            </div>
+
+                                            <div class="form-outline mb-2">
+                                                <label for="quantity">Quantity</label>
+
+                                                {{-- <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">Pc</div>
+                                                    </div> --}}
+                                                <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
+                                                    placeholder="enter quantity..." required>
+                                                    @error('quantity')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                {{-- </div> --}}
+                                            </div>
+
+                                            <div class="form-outline mb-2">
+                                                <label for="price">Price</label>
+
+                                                {{-- <div class="input-group mb-2"> --}}
+                                                    {{-- <div class="input-group-prepend">
+                                                        <div class="input-group-text">Rp</div>
+                                                    </div> --}}
+                                                    <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"
+                                                        id="price" placeholder="enter price..."  required>
+                                                        @error('price')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
+                                                {{-- </div> --}}
+                                            </div>
+
+                                            <div class="form-button mt-3 text-end">
+                                                <button id="submit" type="submit" class="btn btn-success">
+                                                    Create
+                                                    {{-- <i class="fas fa-circle-plus"></i> --}}
+                                                </button>
+                                                <button id="reset" type="reset" class="btn btn-primary">
+                                                    Reset
+                                                </button>
+                                            </div>
+                                        </form>
+
                                     </div>
-                                </form>
+                                </div>
                             </div>
 
                         </div>
