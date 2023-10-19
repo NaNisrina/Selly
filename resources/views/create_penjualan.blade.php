@@ -37,27 +37,36 @@
                                                 <h3>Create New Data</h3>
                                                 <p>Fill in the data below.</p>
 
-                                                <form class="requires-validation" novalidate>
+                                                <form action="{{ route('penjualan.store') }}" method="POST">
+                                                    @csrf
 
                                                     <div class="col-md-12" style="width: 22rem;">
                                                         <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div>
-                                                        <input class="form-control" type="text" name="name"
-                                                            placeholder="Name" required>
-                                                        <div class="valid-feedback">Name field is valid!</div>
-                                                        <div class="invalid-feedback">Name field cannot be blank!</div>
+                                                            <input type="date" name="date" id="date"
+                                                                class="form-control @error('date') is-invalid @enderror" required>
+                                                            @error('date')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-12">
-                                                        <select class="form-select mt-3" style="width: 22rem;" required>
+                                                        <select class="form-select mt-3 @error('product_name') is-invalid @enderror" style="width: 22rem;" name="product_name" id="product_name" required>
                                                             <option selected disabled value="">Product</option>
-                                                            <option value="jweb">Salad</option>
-                                                            <option value="sweb">Nugget</option>
-                                                            <option value="pmanager">Commission</option>
+                                                            @foreach ($stocks as $stock)
+                                                                <option value="{{ $stock->product_name }}">{{ $stock->product_name }}</option>
+                                                            @endforeach
                                                         </select>
+                                                        @error('product_name')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
 
                                                     <div class="form-outline mt-3" style="width: 22rem;">
@@ -65,9 +74,14 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">Pc</div>
                                                             </div>
-                                                        <input type="number" id="typeNumber" class="form-control"
+                                                        <input type="number" name="stock_sold" id="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
                                                             placeholder="Quantity" required>
                                                         </div>
+                                                        @error('stock_sold')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                        @enderror
                                                     </div>
 
                                                     <div class="form-outline mt-3" style="width: 22rem;">
@@ -75,12 +89,15 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">Rp</div>
                                                             </div>
-                                                            <input type="number" class="form-control"
-                                                                id="inlineFormInputGroup" placeholder="Price">
+                                                            <select class="form-select mt-3 @error('price') is-invalid @enderror" style="width: 22rem;" name="price" id="price" required>
+                                                                @foreach ($stocks as $stock)
+                                                                    <option value="{{ $stock->price }}">{{ $stock->price }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-12 mt-3">
+                                                    {{-- <div class="col-md-12 mt-3">
                                                         <label class="mb-3 mr-1" for="status">Status: </label>
 
                                                         <input type="radio" class="btn-check" name="status"
@@ -99,7 +116,7 @@
                                                             for="Paid">Paid</label>
                                                         <div class="valid-feedback mv-up">You selected a status!</div>
                                                         <div class="invalid-feedback mv-up">Please select a status!</div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="form-button mt-1">
                                                         <button id="submit" type="submit"
@@ -124,5 +141,17 @@
 
     </section>
     <!-- /Content -->
+
+    {{-- <script>
+        function price() {
+            var select_element = document.getElementById('product_name');
+    
+            select_element.onchange = function() {
+                var elem = (typeof this.selectedIndex === "undefined" ? window.event.srcElement : this);
+                var value = elem.value || elem.options[elem.selectedIndex].value;
+                return value;
+            }
+        }
+    </script> --}}
 
 @endsection

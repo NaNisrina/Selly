@@ -10,4 +10,8 @@ class Stock extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function sale() {
+        return $this->hasMany(Sale::class);
+    }
 }

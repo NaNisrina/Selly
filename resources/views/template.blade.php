@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- ANIMATE CSS -->
-    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="{{ asset('node_modules/animate.css/animate.min.css') }}">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
 
     <title>@yield('page_title')</title>
 </head>
@@ -92,7 +92,7 @@
     <script src="https://kit.fontawesome.com/2cef0251ec.js" crossorigin="anonymous"></script>
 
     <!-- JS -->
-    <script src="js/template.js"></script>
+    <script src="{{ asset('js/template.js') }}"></script>
 
 
 </body>

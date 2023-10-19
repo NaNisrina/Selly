@@ -34,31 +34,25 @@
                                 <!-- Tablehead -->
                                 <thead class="my-3 mx-3">
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Product</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Total</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <!-- Tablebody -->
                                 <tbody>
-                                    <!-- 1 -->
+                                    @foreach ($sales as $sale)    
                                     <tr>
-                                        <td>1</td>
-                                        <td>Customer 1</td>
-                                        <td>Salad</td>
-                                        <td>1pcs</td>
-                                        <td>Rp7.000</td>
-
-                                        <td>
-                                            <a class="btn btn-success text-white">
-                                                <i class="fas fa-check"></i>
-                                                Paid
-                                            </a>
-                                        </td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $sale->date }}</td>
+                                        <td>{{ $sale->product_name }}</td>
+                                        <td>{{ $sale->stock_sold }}</td>
+                                        <td>{{ $sale->price }}</td>
+                                        <td>{{ $sale->total }}</td>
 
                                         <td>
                                             <div class="d-flex" style="gap: 3px">
@@ -79,143 +73,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <!-- 2 -->
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Customer 2</td>
-                                        <td>Nugget</td>
-                                        <td>1pcs</td>
-                                        <td>Rp5.000</td>
-
-                                        <td>
-                                            <a class="btn btn-warning text-white">
-                                                <i class="fas fa-check"></i>
-                                                Minus
-                                            </a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex" style="gap: 3px">
-
-                                                <!-- Edit -->
-                                                <a href="" class="btn btn-outline-dark">
-                                                    <i class="fas fa-pen-to-square"></i>
-                                                </a>
-
-                                                <!-- Delete -->
-                                                <form action="">
-                                                    <button class="btn btn-outline-dark"
-                                                        onclick="return confirm('Delete this Data?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- 3 -->
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Customer 3</td>
-                                        <td>Commission</td>
-                                        <td>1pcs</td>
-                                        <td>Rp12.000</td>
-
-                                        <td>
-                                            <a class="btn btn-danger text-white">
-                                                <i class="fas fa-check"></i>
-                                                Not Paid
-                                            </a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex" style="gap: 3px">
-
-                                                <!-- Edit -->
-                                                <a href="" class="btn btn-outline-dark">
-                                                    <i class="fas fa-pen-to-square"></i>
-                                                </a>
-
-                                                <!-- Delete -->
-                                                <form action="">
-                                                    <button class="btn btn-outline-dark"
-                                                        onclick="return confirm('Delete this Data?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- 4 -->
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Customer 4</td>
-                                        <td>Nugget</td>
-                                        <td>1pcs</td>
-                                        <td>Rp5.000</td>
-
-                                        <td>
-                                            <a class="btn btn-warning text-white">
-                                                <i class="fas fa-check"></i>
-                                                Minus
-                                            </a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex" style="gap: 3px">
-
-                                                <!-- Edit -->
-                                                <a href="" class="btn btn-outline-dark">
-                                                    <i class="fas fa-pen-to-square"></i>
-                                                </a>
-
-                                                <!-- Delete -->
-                                                <form action="">
-                                                    <button class="btn btn-outline-dark"
-                                                        onclick="return confirm('Delete this Data?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- 5 -->
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Customer 5</td>
-                                        <td>Salad</td>
-                                        <td>1pcs</td>
-                                        <td>Rp7.000</td>
-
-                                        <td>
-                                            <a class="btn btn-success text-white">
-                                                <i class="fas fa-check"></i>
-                                                Paid
-                                            </a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex" style="gap: 3px">
-
-                                                <!-- Edit -->
-                                                <a href="" class="btn btn-outline-dark">
-                                                    <i class="fas fa-pen-to-square"></i>
-                                                </a>
-
-                                                <!-- Delete -->
-                                                <form action="">
-                                                    <button class="btn btn-outline-dark"
-                                                        onclick="return confirm('Delete this Data?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-                                        </td>
-                                    </tr>
-
+                                    @endforeach
                                 </tbody>
 
                             </table>

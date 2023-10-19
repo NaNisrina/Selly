@@ -41,8 +41,7 @@
                                                     @csrf
                                                     <div class="col-md-12 mb-3" style="width: 22rem;">
                                                         <img class="img-preview img-fluid mb-3 col-sm-5">
-                                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" multiple required>
-                                                        {{-- <label for="product_img" class="form-label text-start">Product img</label> --}}
+                                                        <input class="form-control @error('product_img') is-invalid @enderror" type="file" id="product_img" name="product_img" onchange="previewImage()" multiple required>
                                                         @error('product_img')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -122,13 +121,13 @@
     <script>
         // menampilkan gambar
         function previewImage() {
-            const img = document.querySelector('#product_img');
+            const product_img = document.querySelector('#product_img');
             const imgPreview = document.querySelector('.img-preview');
 
             imgPreview.style.display = 'block';
 
             const oFReader = new FileReader();
-            oFReader.readAsDataURL(img.files[0]);
+            oFReader.readAsDataURL(product_img.files[0]);
 
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
