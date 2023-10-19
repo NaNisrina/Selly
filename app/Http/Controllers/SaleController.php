@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -12,7 +13,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('penjualan');
+        $sales = Sale::all();
+        return view('penjualan', compact('sales'));
     }
 
     /**
@@ -20,7 +22,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('create_penjualan');
+        $stocks = Stock::all();
+        return view('create_penjualan', compact('stocks'));
     }
 
     /**
@@ -28,7 +31,30 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // dd($request);
+        $message = [
+            'required' => ':attribute harus diisi',
+            'regex' => ':attribute tidak sesuai',
+            'min' => ':attribute minimal :min karakter',
+            'max' => ':attribute maksimal :max karakter'
+        ];
+
+        $validatedData = $request->validate([
+            'date' => 'required',
+            'product_name' => 'required',
+            'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
+            'price' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
+        ], $message);
+
+        $validatedData['total'] = $validatedData['stock_sold'] * $validatedData['price'];
+
+        // dd($price);
+        // dd($validatedData);
+        
+        Sale::create($validatedData);
+
+        return redirect()->route('penjualan.index');
     }
 
     /**

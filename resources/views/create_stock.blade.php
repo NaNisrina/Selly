@@ -122,13 +122,13 @@
     <script>
         // menampilkan gambar
         function previewImage() {
-            const img = document.querySelector('#product_img');
+            const product_img = document.querySelector('#product_img');
             const imgPreview = document.querySelector('.img-preview');
 
             imgPreview.style.display = 'block';
 
             const oFReader = new FileReader();
-            oFReader.readAsDataURL(img.files[0]);
+            oFReader.readAsDataURL(product_img.files[0]);
 
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
