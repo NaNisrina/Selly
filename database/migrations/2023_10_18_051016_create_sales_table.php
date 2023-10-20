@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->string('product_name');
-            $table->decimal('price', 12, 2);
+
+            $table->unsignedBigInteger('stock_id');
+            $table->foreign('stock_id')->references('id')->on('stocks');
+
             $table->integer('stock_sold');
             $table->decimal('total', 12, 2);
             $table->timestamps();

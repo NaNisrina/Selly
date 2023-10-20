@@ -42,16 +42,19 @@ class SaleController extends Controller
 
         $validatedData = $request->validate([
             'date' => 'required',
-            'product_name' => 'required',
+            'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
-            'price' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
         ], $message);
 
-        $validatedData['total'] = $validatedData['stock_sold'] * $validatedData['price'];
+        // $price = $request->price;
+
+        // dd($price);
+
+        $validatedData['total'] = $validatedData['stock_sold'] * $request->price;
 
         // dd($price);
         // dd($validatedData);
-        
+
         Sale::create($validatedData);
 
         return redirect()->route('penjualan.index');

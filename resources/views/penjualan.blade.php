@@ -4,7 +4,7 @@
 @section('page_content')
 
     <!-- Content -->
-    <section class="bg-success-subtle py-5">
+    <section class="bg-dark text-white py-5">
 
         <div class="container">
 
@@ -49,10 +49,10 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $sale->date }}</td>
-                                        <td>{{ $sale->product_name }}</td>
+                                        <td>{{ $sale->stock->product_name }}</td>
                                         <td>{{ $sale->stock_sold }}</td>
-                                        <td>{{ $sale->price }}</td>
-                                        <td>{{ $sale->total }}</td>
+                                        <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
+                                        <td>Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
 
                                         <td>
                                             <div class="d-flex" style="gap: 3px">
@@ -89,5 +89,7 @@
 
     </section>
     <!-- /Content -->
+
+    
 
 @endsection
