@@ -23,6 +23,7 @@ class SaleController extends Controller
     public function create()
     {
         $stocks = Stock::all();
+        
         return view('create_penjualan', compact('stocks'));
     }
 
@@ -46,11 +47,19 @@ class SaleController extends Controller
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
         ], $message);
 
+        
+
         // $price = $request->price;
 
         // dd($price);
 
         $validatedData['total'] = $validatedData['stock_sold'] * $request->price;
+
+        $barang = Stock::where('id', $request->stock_id)->first();
+
+        $barang->update([
+        'quantity' => $barang->quantity-$request->stock_sold
+        ]);
 
         // dd($price);
         // dd($validatedData);

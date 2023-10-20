@@ -66,8 +66,8 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <select name="stock_id" id="stock_id" onchange="javascript:price()">
-                                                            <option value="" selected disabled>Product Name</option>
+                                                        <select name="stock_id" id="stock_id" onchange="halah()">
+                                                            <option value="" selected disabled >Product Name</option>
                                                             @foreach ($stocks as $stock)
                                                                 <option value="{{ $stock->id }}">{{ $stock->product_name }}</option>
                                                             @endforeach
@@ -100,6 +100,9 @@
         
                                                     <div class="form-outline mb-2">
                                                         <label for="price">Price</label>
+
+                                                        <input type="text" id="taudeh">
+                                                        <p>{{ App\Models\Stock::where('id', myFunction()) }}</p>
         
                                                         {{-- <div class="input-group mb-2"> --}}
                                                             {{-- <div class="input-group-prepend">
@@ -149,21 +152,15 @@
     <!-- /Content -->
 
     <script>
-        function price() {
-            var select_element = document.getElementById('stock_id');
-    
-            select_element.onchange = function() {
-                var elem = (typeof this.selectedIndex === "undefined" ? window.event.srcElement : this);
-                var value = elem.value || elem.options[elem.selectedIndex].value;
-                alert(value);
+        function halah() {
+            function myFunction() {
+                var value = document.getElementById("stock_id").value;
+                // document.getElementById("value").value = value;
+                return(value);
             }
+            // document.getElementById('taudeh').value = myFunction();
+            return myFunction();
         }
     </script>
-
-    {{-- <script>
-        var e = document.getElementById("stock_id");
-        var value = e.value;
-        alert(value);
-    </script> --}}
 
 @endsection
