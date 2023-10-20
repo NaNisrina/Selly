@@ -16,7 +16,8 @@ return new class extends Migration
             $table->date('date');
 
             $table->unsignedBigInteger('stock_id');
-            $table->foreign('stock_id')->references('id')->on('stocks');
+            $table->foreign('stock_id')->references('id')->on('stocks')
+                ->onUpdate('cascade')->onDelete('cascade'); // constraints;
 
             $table->integer('stock_sold');
             $table->decimal('total', 12, 2);

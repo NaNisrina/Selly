@@ -139,7 +139,7 @@
                                     <div class="card QA_section border-0 bg-dark">
                                         <div class="card-body QA_table">
                                             <div class="table-responsive shopping-cart">
-                                                <table class="table mb-0 text-center table-dark">
+                                                <table class="table mb-0 text-center table-dark table-striped table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th class="border-top-0">#</th>

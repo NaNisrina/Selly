@@ -1,5 +1,5 @@
 @extends('template')
-@section('page_title', 'Create Penjualan')
+@section('page_title', 'Create Stok')
 
 @section('page_content')
 
@@ -12,7 +12,9 @@
 
                 <!-- Title -->
                 <h1 class="text-center display-5 fw-bolder mb-2 animate__animated animate__zoomIn my-3">
-                    Create Penjualan
+
+                    Edit Sale: {{ $sale->stock->product_name }} -- {{ $sale->date }}
+
                 </h1>
 
                 <div class="col-lg-12">
@@ -20,7 +22,7 @@
                     <div class="card-border-0">
                         <!-- Cardhead -->
                         <div class="text-center">
-                            <a href="{{ route('penjualan.index') }}" class="btn btn-outline-dark mx-2">
+                            <a href="{{ route('penjualan.index') }}" class="btn btn-outline-dark mt-2 mb-0">
                                 <h2 class="text-white">
                                     <i class="fas fa-arrow-left"></i>
                                     Back to Penjualan
@@ -29,30 +31,30 @@
                         </div>
 
                         <!-- Cardbody -->
-                        <div class="card-body overflow-auto" style="width: 100%;" align="center">
+                        <div class="card-body overflow-auto my-3" style="width: 100%;" align="center">
 
                             <div class="form-body my-3">
                                 <div class="container">
                                     {{-- <div class="form-holder"> --}}
                                         <div class="form-content">
                                             <div class="form-items">
-                                                {{-- <h3>Create New Data</h3>
-                                                <p>Fill in the data below.</p> --}}
+                                                {{-- <h3>Create New Data</h3> --}}
+                                                {{-- <p class="text-center mb-3 fw-bold">Edit Stock: {{ $stock->product_name }}</p> --}}
 
-                                                <form action="{{ route('penjualan.store') }}" method="POST">
+                                                <form action="{{ route('penjualan.update', $sale->id) }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
+                                                    @method('PUT')
 
-                                                    {{-- <input type="hidden" name="{{  }}"> --}}
-
-                                                    <div class="form-outline mb-2">
+                                                    <div class="form outline mb-2">
                                                         <label for="date">Date</label>
 
-                                                        {{-- <div class="input-group mb-2">
-                                                            <div class="input-group-prepend">
+                                                        {{-- <div class="input-group mb-2"> --}}
+                                                            {{-- <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <input class="form-control @error('date') is-invalid @enderror" type="date" id="date" name="date"
-                                                            placeholder="enter date..." required>
+
+                                                        <input class="mt-0 form-control @error('date') is-invalid @enderror" id="date" type="text" name="date"
+                                                            placeholder="enter date..." required value="{{ $sale->date }}">
                                                             @error('date')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -82,16 +84,16 @@
                                                         {{-- </div> --}}
                                                     </div>
 
-
                                                     <div class="form-outline mb-2">
                                                         <label for="quantity">Quantity</label>
 
-                                                        {{-- <div class="input-group mb-2">
-                                                            <div class="input-group-prepend">
+                                                        {{-- <div class="input-group mb-2"> --}}
+                                                            {{-- <div class="input-group-prepend">
                                                                 <div class="input-group-text">Pc</div>
                                                             </div> --}}
-                                                        <input type="number" id="stock_sold" name="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
-                                                            placeholder="enter quantity..." required>
+
+                                                        <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
+                                                            placeholder="enter quantity..." required value="{{ $sale->stock_sold }}">
                                                             @error('quantity')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -132,6 +134,8 @@
                                                         <button id="reset" type="reset" class="btn btn-primary">
                                                             Reset
                                                         </button>
+                                                        {{-- <button id="submit" type="submit"
+                                                            class="btn btn-success">Submit</button> --}}
                                                     </div>
                                                 </form>
                                             </div>
@@ -154,14 +158,19 @@
     <!-- /Content -->
 
     <script>
-        function halah() {
-            function myFunction() {
-                var value = document.getElementById("stock_id").value;
-                // document.getElementById("value").value = value;
-                return(value);
+        // menampilkan gambar
+        function previewImage() {
+            const img = document.querySelector('#product_img');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(img.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
             }
-            // document.getElementById('taudeh').value = myFunction();
-            return myFunction();
         }
     </script>
 

@@ -19,10 +19,10 @@
                     <!-- Card -->
                     <div class="card-border-0">
                         <!-- Cardhead -->
-                        <div class="card-header">
-                            <a href="{{ route('penjualan.create') }}" class="btn btn-outline-dark">
+                        <div class="">
+                            <a href="{{ route('penjualan.create') }}" class="btn btn-success">
                                 Create
-                                <i class="fas fa-circle-plus"></i>
+                                {{-- <i class="fas fa-circle-plus"></i> --}}
                             </a>
                         </div>
 
@@ -30,7 +30,7 @@
                         <div class="card-body overflow-auto my-4 t_border">
 
                             <!-- Table -->
-                            <table id="" class="table table-striped table-success table-hover">
+                            <table id="" class="table table-striped table-dark text-white table-hover">
                                 <!-- Tablehead -->
                                 <thead class="my-3 mx-3">
                                     <tr>
@@ -45,10 +45,10 @@
                                 </thead>
                                 <!-- Tablebody -->
                                 <tbody>
-                                    @foreach ($sales as $sale)    
+                                    @foreach ($sales as $sale)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sale->date }}</td>
+                                        <td>{{ $sale->date->format('d-m-Y') }}</td>
                                         <td>{{ $sale->stock->product_name }}</td>
                                         <td>{{ $sale->stock_sold }}</td>
                                         <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
@@ -58,14 +58,16 @@
                                             <div class="d-flex" style="gap: 3px">
 
                                                 <!-- Edit -->
-                                                <a href="" class="btn btn-outline-dark">
+                                                <a href="{{ route('penjualan.edit', $sale->id) }}" class="btn btn-outline-light">
                                                     <i class="fas fa-pen-to-square"></i>
                                                 </a>
 
                                                 <!-- Delete -->
-                                                <form action="">
-                                                    <button class="btn btn-outline-dark"
-                                                        onclick="return confirm('Delete this Data?')">
+                                                <form action="{{ route('penjualan.destroy', $sale->id) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-outline-light" type="submit" onclick="return confirm('Delete this Data?')">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
@@ -90,6 +92,6 @@
     </section>
     <!-- /Content -->
 
-    
+
 
 @endsection
