@@ -11,9 +11,9 @@ class Sale extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'date' => 'datetime'
-    ];
+    // protected $casts = [
+    //     'date' => 'datetime:m-d-Y',
+    // ];
 
     public function stock() {
         return $this->belongsTo(Stock::class);

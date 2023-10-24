@@ -13,7 +13,7 @@
                 <!-- Title -->
                 <h1 class="text-center display-5 fw-bolder mb-2 animate__animated animate__zoomIn my-3">
 
-                    Edit Sale: {{ $sale->stock->product_name }} -- {{ $sale->date }}
+                    Edit Sale: {{ $sales->stock->product_name }} -- {{ $sales->date }}
 
                 </h1>
 
@@ -41,7 +41,7 @@
                                                 {{-- <h3>Create New Data</h3> --}}
                                                 {{-- <p class="text-center mb-3 fw-bold">Edit Stock: {{ $stock->product_name }}</p> --}}
 
-                                                <form action="{{ route('penjualan.update', $sale->id) }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('penjualan.update', $sales->id) }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
 
@@ -52,9 +52,9 @@
                                                             {{-- <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
+                                                            <input type="date" name="date" id="date" class="form-control @error('date') is-invalid @enderror" value="{{ $sales->date }}">
 
-                                                        <input class="mt-0 form-control @error('date') is-invalid @enderror" id="date" type="text" name="date"
-                                                            placeholder="enter date..." required value="{{ $sale->date }}">
+                                                        {{-- <input class="mt-0 form-control @error('date') is-invalid @enderror" id="date" type="date" name="date" required value="{{ $sale->date }}"> --}}
                                                             @error('date')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -65,15 +65,12 @@
 
                                                     <div class="form-outline mb-2">
                                                         <label for="product_name">Product Name</label>
-
-                                                        {{-- <div class="input-group mb-2">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">@</div>
-                                                            </div> --}}
-                                                        <select name="stock_id" id="stock_id" onchange="halah()">
-                                                            <option value="" selected disabled >Product Name</option>
+                                                        <input type="hidden" name="old_stockid" value="{{ $sales->stock_id }}">
+                                                        <select name="stock_id" id="stock_id" required>
+                                                            <option value="" disabled >Product Name - Price</option>
+                                                            <option value="{{ $sales->stock_id }}" selected hidden>{{ $sales->stock->product_name }} - {{ $sales->stock->price }}</option>
                                                             @foreach ($stocks as $stock)
-                                                                <option value="{{ $stock->id }}">{{ $stock->product_name }}</option>
+                                                                <option value="{{ $stock->id }}">{{ $stock->product_name }} - {{ $stock->price }}</option>
                                                             @endforeach
                                                         </select>
                                                             @error('product_name')
@@ -91,10 +88,10 @@
                                                             {{-- <div class="input-group-prepend">
                                                                 <div class="input-group-text">Pc</div>
                                                             </div> --}}
-
-                                                        <input type="number" id="quantity" name="quantity" class="form-control @error('quantity') is-invalid @enderror"
-                                                            placeholder="enter quantity..." required value="{{ $sale->stock_sold }}">
-                                                            @error('quantity')
+                                                        <input type="hidden" name="old_stock" value="{{ $sales->stock_sold }}">
+                                                        <input type="number" id="stock_sold" name="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
+                                                            placeholder="enter quantity stock_sold..." required value="{{ $sales->stock_sold }}" required>
+                                                            @error('stock_sold')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                 </div>
@@ -102,8 +99,8 @@
                                                         {{-- </div> --}}
                                                     </div>
 
-                                                    <div class="form-outline mb-2">
-                                                        <label for="price">Price</label>
+                                                    {{-- <div class="form-outline mb-2">
+                                                        <label for="price">Price</label> --}}
 
                                                         {{-- <input type="text" id="taudeh"> --}}
                                                         {{-- <p>{{ App\Models\Stock::where('id', myFunction()) }}</p> --}}
@@ -112,19 +109,19 @@
                                                             {{-- <div class="input-group-prepend">
                                                                 <div class="input-group-text">Rp</div>
                                                             </div> --}}
-                                                            <select name="price" id="price">
+                                                            {{-- <select name="price" id="price" required>
                                                                 <option value="" selected disabled>Price</option>
                                                                 @foreach ($stocks as $stock)
                                                                     <option value="{{ $stock->price }}">{{ $stock->price }}</option>
                                                                 @endforeach
-                                                            </select>
-                                                                @error('price')
+                                                            </select> --}}
+                                                                {{-- @error('price')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
                                                                     </div>
-                                                                @enderror
+                                                                @enderror --}}
                                                         {{-- </div> --}}
-                                                    </div>
+                                                    {{-- </div> --}}
 
                                                     <div class="form-button mt-3 text-end">
                                                         <button id="submit" type="submit" class="btn btn-success">

@@ -70,10 +70,10 @@ class StockController extends Controller
      */
     public function edit(Stock $stock)
     {
-        return($stock);
-        // return view('edit_stock', [
-        //     'stock' => $stock
-        // ]);
+        // return($stock);
+        return view('edit_stock', [
+            'stock' => $stock
+        ]);
     }
 
     /**

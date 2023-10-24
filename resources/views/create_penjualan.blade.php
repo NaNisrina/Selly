@@ -71,7 +71,7 @@
                                                         <select name="stock_id" id="stock_id" onchange="halah()">
                                                             <option value="" selected disabled >Product Name</option>
                                                             @foreach ($stocks as $stock)
-                                                                <option value="{{ $stock->id }}">{{ $stock->product_name }}</option>
+                                                                <option value="{{ $stock->id }}">{{ $stock->product_name }} - {{ $stock->price }}</option>
                                                             @endforeach
                                                         </select>
                                                             @error('product_name')
@@ -100,16 +100,16 @@
                                                         {{-- </div> --}}
                                                     </div>
 
-                                                    <div class="form-outline mb-2">
+                                                    {{-- <div class="form-outline mb-2">
                                                         <label for="price">Price</label>
 
-                                                        {{-- <input type="text" id="taudeh"> --}}
-                                                        {{-- <p>{{ App\Models\Stock::where('id', myFunction()) }}</p> --}}
+                                                        <input type="text" id="taudeh">
+                                                        <p>{{ App\Models\Stock::where('id', myFunction()) }}</p>
 
-                                                        {{-- <div class="input-group mb-2"> --}}
-                                                            {{-- <div class="input-group-prepend">
+                                                        <div class="input-group mb-2">
+                                                            <div class="input-group-prepend">
                                                                 <div class="input-group-text">Rp</div>
-                                                            </div> --}}
+                                                            </div>
                                                             <select name="price" id="price">
                                                                 <option value="" selected disabled>Price</option>
                                                                 @foreach ($stocks as $stock)
@@ -121,8 +121,8 @@
                                                                         {{ $message }}
                                                                     </div>
                                                                 @enderror
-                                                        {{-- </div> --}}
-                                                    </div>
+                                                        </div>
+                                                    </div> --}}
 
                                                     <div class="form-button mt-3 text-end">
                                                         <button id="submit" type="submit" class="btn btn-success">

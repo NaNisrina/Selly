@@ -48,7 +48,7 @@
                                     @foreach ($sales as $sale)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sale->date->format('d-m-Y') }}</td>
+                                        <td>{{ $sale->date }}</td>
                                         <td>{{ $sale->stock->product_name }}</td>
                                         <td>{{ $sale->stock_sold }}</td>
                                         <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>

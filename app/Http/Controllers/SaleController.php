@@ -32,7 +32,6 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-
         // dd($request);
         $message = [
             'required' => ':attribute harus diisi',
@@ -42,23 +41,17 @@ class SaleController extends Controller
         ];
 
         $validatedData = $request->validate([
-            'date' => 'required|date_format:Y-m-d|before:tomorrow',
+            'date' => 'required|before:tomorrow',
             'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
         ], $message);
 
-
-
-        // $price = $request->price;
-
-        // dd($price);
-
-        $validatedData['total'] = $validatedData['stock_sold'] * $request->price;
-
         $barang = Stock::where('id', $request->stock_id)->first();
 
+        $validatedData['total'] = $validatedData['stock_sold'] * $barang->price;
+
         $barang->update([
-        'quantity' => $barang->quantity-$request->stock_sold
+        'quantity' => $barang->quantity - $request->stock_sold
         ]);
 
         // dd($price);
@@ -82,19 +75,18 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale, $id)
     {
-        // $tes = Sale::find($id);
-        // $stocks = Stock::all();
-        // return($sale);
+        $sales = Sale::find($id);
+        // dd($sales);
         return view('edit_sale', [
             "stocks" => Stock::all(),
-            "sale" => Sale::find($id)
+            "sales" => $sales
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sale $sale)
+    public function update(Request $request, Sale $sale, $id)
     {
         // dd($request);
         $message = [
@@ -105,22 +97,39 @@ class SaleController extends Controller
         ];
 
         $validatedData = $request->validate([
-            'date' => 'required|date_format:Y-m-d|before:tomorrow',
+            'date' => 'required|before:tomorrow',
             'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
         ], $message);
-
-        $validatedData['total'] = $validatedData['quantity'] * $validatedData['price'];
-
+        
         $barang = Stock::where('id', $request->stock_id)->first();
+        
+        $validatedData['total'] = $validatedData['stock_sold'] * $barang->price;
 
-        $barang->update([
-        'quantity' => $barang->quantity-$request->stock_sold
-        ]);
+        if($request->old_stockid == $validatedData['stock_id']) {
+            if($request->old_stock > $validatedData['stock_sold']) {
+                $itung = ($request->old_stock - $validatedData['stock_sold']) + $barang->quantity;
+                $barang->update([
+                    'quantity' => $itung
+                ]);
+            } elseif($request->old_stock < $validatedData['stock_sold']) {
+                $itung = $barang->quantity - ($validatedData['stock_sold'] - $request->old_stock) ;
+                $barang->update([
+                    'quantity' => $itung
+                ]);
+            }
+        } elseif($request->old_stockid != $validatedData['stock_id']) {
+            $oldbarang = Stock::where('id', $request->old_stockid)->first();
+            $oldbarang->update([
+                'quantity' => $oldbarang->quantity + $request->old_stock
+            ]);
 
-        // dd($validatedData);
+            $barang->update([
+                'quantity' => $barang->quantity - $request->stock_sold
+            ]);
+        }
 
-        Sale::where('id', $sale->id)->update($validatedData);
+        Sale::where('id', $id)->update($validatedData);
 
         return redirect()->route('penjualan.index');
 
@@ -132,8 +141,8 @@ class SaleController extends Controller
     public function destroy(Sale $sale, $id)
     {
         $sale = Sale::find($id);
-
-        $barang = Stock::where('id', $sale->id)->first();
+        
+        $barang = Stock::where('id', $sale->stock_id)->first();
 
         $barang->update([
             'quantity' => $barang->quantity + $sale->stock_sold
