@@ -78,6 +78,22 @@
                                     @endforeach
                                 </tbody>
 
+                                <!-- /Tablebody -->
+
+                                <!-- Tablebody -->
+                                <tbody class="table table-bordered table-dark">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Total</td>
+                                        <td>Rp{{ number_format($sum, 2, ',', '.') }}</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                <!-- /tbody -->
+
                             </table>
 
                         </div>

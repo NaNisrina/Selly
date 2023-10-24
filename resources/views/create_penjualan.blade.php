@@ -30,6 +30,14 @@
 
                         <!-- Cardbody -->
                         <div class="card-body overflow-auto" style="width: 100%;" align="center">
+                            @if (count($errors) > 0)
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $error }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endforeach
+                    @endif
 
                             <div class="form-body my-3">
                                 <div class="container">
