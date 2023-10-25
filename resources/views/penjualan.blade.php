@@ -19,124 +19,150 @@
                     <!-- Card -->
                     <div class="card-border-0">
                         <!-- Cardhead -->
-                        <div class="">
+                        <div class="card-header bg-dark text-white">
                             <a href="{{ route('penjualan.create') }}" class="btn btn-success">
                                 Create
-                                {{-- <i class="fas fa-circle-plus"></i> --}}
+                                <i class="ms-1 fas fa-circle-plus"></i>
                             </a>
                         </div>
 
                         <!-- Cardbody -->
-                        <div class="card-body overflow-auto my-4 t_border">
+                        <div class="card-body my-4 t_border">
 
-                            <!-- Table -->
-                            <table id="" class="table table-dark text-white table-hover">
-                                <!-- Tablehead -->
-                                <thead class="my-3 mx-3">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <!-- Tablebody -->
-                                <tbody>
-                                    @foreach ($sales as $date => $sale_list)
-                                        @foreach ($sale_list as $sale)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $sale->date }}</td>
-                                                <td>{{ $sale->stock->product_name }}</td>
-                                                <td>{{ $sale->stock_sold }}</td>
-                                                <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
-                                                <td>Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
+                            <div class="card-body my-3" style="width: 100%;" align="center">
 
-                                                <td>
-                                                    <div class="d-flex" style="gap: 3px">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card QA_section border-0 bg-dark">
+                                            <div class="card-body QA_table">
+                                                <div class="table-responsive shopping-cart">
 
-                                                        <!-- Edit -->
-                                                        <a href="{{ route('penjualan.edit', $sale->id) }}" class="btn btn-outline-light">
-                                                            <i class="fas fa-pen-to-square"></i>
-                                                        </a>
+                                                    <!-- Table -->
+                                                    <table id="" class="table table-dark table-hover text-white text-center mb-0">
+                                                        <!-- Tablehead -->
+                                                        <thead class="my-3 mx-3">
+                                                            <tr>
+                                                                <th class="border-top-0" scope="col">#</th>
+                                                                <th class="border-top-0" scope="col">Date</th>
+                                                                <th class="border-top-0" scope="col">Product</th>
+                                                                <th class="border-top-0" scope="col">Quantity</th>
+                                                                <th class="border-top-0" scope="col">Price</th>
+                                                                <th class="border-top-0" scope="col">Total</th>
+                                                                <th class="border-top-0" scope="col">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!-- Tablebody -->
+                                                        <tbody>
+                                                            @foreach ($sales as $date => $sale_list)
+                                                                @foreach ($sale_list as $sale)
+                                                                    <tr>
+                                                                        <td class="align-middle">{{ $loop->iteration }}</td>
+                                                                        <td class="align-middle">{{ $sale->date }}</td>
+                                                                        <td class="align-middle">{{ $sale->stock->product_name }}</td>
+                                                                        <td class="align-middle">{{ $sale->stock_sold }}</td>
+                                                                        <td class="align-middle">Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
+                                                                        <td class="align-middle">Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
 
-                                                        <!-- Delete -->
-                                                        <form action="{{ route('penjualan.destroy', $sale->id) }}"
-                                                            method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button class="btn btn-outline-light" type="submit" onclick="return confirm('Delete this Data?')">
-                                                                <i class="fas fa-trash"></i>
-                                                            </button>
-                                                        </form>
+                                                                        <td class="align-middle">
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        <tr class="table-light">
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>Total</td>
-                                            <td>Rp{{ number_format($sale_list->sum('total'), 2, ',', '.') }}</td>
-                                            <td></td>
-                                        </tr>
-                                    @endforeach
-                                    {{-- @foreach ($sales as $sale)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sale->date }}</td>
-                                        <td>{{ $sale->stock->product_name }}</td>
-                                        <td>{{ $sale->stock_sold }}</td>
-                                        <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
-                                        <td>Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
+                                                                                <!-- Edit -->
+                                                                                <a href="{{ route('penjualan.edit', $sale->id) }}" class="btn btn-outline-light">
+                                                                                    <i class="fas fa-pen-to-square"></i>
+                                                                                </a>
 
-                                        <td>
-                                            <div class="d-flex" style="gap: 3px">
+                                                                                <!-- Delete -->
+                                                                                <form action="{{ route('penjualan.destroy', $sale->id) }}"
+                                                                                    method="POST" class="d-inline">
+                                                                                    @csrf
+                                                                                    @method('delete')
+                                                                                    <button class="btn btn-outline-light" type="submit" onclick="return confirm('Delete this Data?')">
+                                                                                        <i class="fas fa-trash"></i>
+                                                                                    </button>
+                                                                                </form>
 
-                                                <!-- Edit -->
-                                                <a href="{{ route('penjualan.edit', $sale->id) }}" class="btn btn-outline-light">
-                                                    <i class="fas fa-pen-to-square"></i>
-                                                </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                <tr>
+                                                                    <td colspan="4"></td>
 
-                                                <!-- Delete -->
-                                                <form action="{{ route('penjualan.destroy', $sale->id) }}"
-                                                    method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-outline-light" type="submit" onclick="return confirm('Delete this Data?')">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
+                                                                    <td>Daily</td>
+                                                                    <td colspan="2">Rp{{ number_format($sale_list->sum('total'), 2, ',', '.') }}</td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                            <!-- TOTAL KESELURUHAN -->
+                                                                <tr>
+                                                                    <td colspan="4"></td>
+                                                                    <td>All Sales</td>
+                                                                    <td colspan="2">Rp{{ number_format($sum, 2, ',', '.') }}</td>
+                                                                </tr>
+                                                        <!-- /TOTAL KESELURUHAN-->
+
+                                                            {{-- @foreach ($sales as $sale)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $sale->date }}</td>
+                                                                <td>{{ $sale->stock->product_name }}</td>
+                                                                <td>{{ $sale->stock_sold }}</td>
+                                                                <td>Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
+                                                                <td>Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
+
+                                                                <td>
+                                                                    <div class="d-flex" style="gap: 3px">
+
+                                                                        <!-- Edit -->
+                                                                        <a href="{{ route('penjualan.edit', $sale->id) }}" class="btn btn-outline-light">
+                                                                            <i class="fas fa-pen-to-square"></i>
+                                                                        </a>
+
+                                                                        <!-- Delete -->
+                                                                        <form action="{{ route('penjualan.destroy', $sale->id) }}"
+                                                                            method="POST" class="d-inline">
+                                                                            @csrf
+                                                                            @method('delete')
+                                                                            <button class="btn btn-outline-light" type="submit" onclick="return confirm('Delete this Data?')">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </form>
+
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            @endforeach --}}
+                                                        </tbody>
+
+                                                        <!-- /Tablebody -->
+
+                                                        <!-- Tablebody -->
+                                                        {{-- <tbody class="table table-bordered table-dark">
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>Total</td>
+                                                                <td>Rp{{ number_format($sum, 2, ',', '.') }}</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody> --}}
+                                                     <!-- /tbody -->
+
+                                                    </table>
+
+                                                </div>
 
                                             </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach --}}
-                                </tbody>
 
-                                <!-- /Tablebody -->
+                                        </div>
 
-                                <!-- Tablebody -->
-                                {{-- <tbody class="table table-bordered table-dark">
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>Total</td>
-                                        <td>Rp{{ number_format($sum, 2, ',', '.') }}</td>
-                                        <td></td>
-                                    </tr>
-                                </tbody> --}}
-                                <!-- /tbody -->
+                                    </div>
 
-                            </table>
+                                </div>
+
+                            </div>
+
+
 
                         </div>
 

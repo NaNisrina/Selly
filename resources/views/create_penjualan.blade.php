@@ -76,7 +76,7 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <select name="stock_id" id="stock_id" onchange="halah()">
+                                                        <select class="mt-0" name="stock_id" id="stock_id" onchange="halah()">
                                                             <option value="" selected disabled >Product Name</option>
                                                             @foreach ($stocks as $stock)
                                                                 <option value="{{ $stock->id }}">{{ $stock->product_name }} - {{ $stock->price }}</option>
@@ -99,7 +99,7 @@
                                                                 <div class="input-group-text">Pc</div>
                                                             </div> --}}
                                                         <input type="number" id="stock_sold" name="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
-                                                            placeholder="enter quantity..." required>
+                                                            placeholder="enter quantity sold..." required>
                                                             @error('quantity')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}

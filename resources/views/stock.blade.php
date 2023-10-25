@@ -53,7 +53,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">@</div>
                                                     </div> --}}
-                                                <input class="form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
+                                                <input class="mt-0 form-control @error('product_name') is-invalid @enderror" type="text" id="product_name" name="product_name"
                                                     placeholder="enter name..." required>
                                                     @error('product_name')
                                                         <div class="invalid-feedback">
@@ -70,7 +70,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">@</div>
                                                     </div> --}}
-                                                <input class="form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
+                                                <input class="mt-0 form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
                                                     placeholder="enter name..." required>
                                                     @error('product_description')
                                                         <div class="invalid-feedback">
@@ -104,7 +104,7 @@
                                                     {{-- <div class="input-group-prepend">
                                                         <div class="input-group-text">Rp</div>
                                                     </div> --}}
-                                                    <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"
+                                                    <input type="text" name="price" class="mt-0 form-control @error('price') is-invalid @enderror"
                                                         id="price" placeholder="enter price..."  required>
                                                         @error('price')
                                                             <div class="invalid-feedback">
@@ -139,7 +139,7 @@
                                     <div class="card QA_section border-0 bg-dark">
                                         <div class="card-body QA_table">
                                             <div class="table-responsive shopping-cart">
-                                                <table class="table mb-0 text-center table-dark table-striped table-hover">
+                                                <table class="table mb-0 text-center table-dark table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th class="border-top-0">#</th>

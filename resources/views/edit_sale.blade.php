@@ -66,7 +66,7 @@
                                                     <div class="form-outline mb-2">
                                                         <label for="product_name">Product Name</label>
                                                         <input type="hidden" name="old_stockid" value="{{ $sales->stock_id }}">
-                                                        <select name="stock_id" id="stock_id" required>
+                                                        <select class="mt-0" name="stock_id" id="stock_id" required>
                                                             <option value="" disabled >Product Name - Price</option>
                                                             <option value="{{ $sales->stock_id }}" selected hidden>{{ $sales->stock->product_name }} - {{ $sales->stock->price }}</option>
                                                             @foreach ($stocks as $stock)
@@ -90,7 +90,7 @@
                                                             </div> --}}
                                                         <input type="hidden" name="old_stock" value="{{ $sales->stock_sold }}">
                                                         <input type="number" id="stock_sold" name="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
-                                                            placeholder="enter quantity stock_sold..." required value="{{ $sales->stock_sold }}" required>
+                                                            placeholder="enter quantity sold..." required value="{{ $sales->stock_sold }}" required>
                                                             @error('stock_sold')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}

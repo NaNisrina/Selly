@@ -15,8 +15,13 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::orderBy('date')->get()->groupBy('date');
+        return view('penjualan', [
+            'sales' => $sales,
+            'sum' => Sale::all()->sum('total')
+        ]);
+
         // dd($sales);
-        return view('penjualan', compact('sales'));
+        // return view('penjualan', compact('sales'));
         // $sale = Sale::all();
         // return view('penjualan', [
         //     'sales' => $sale,
@@ -71,7 +76,7 @@ class SaleController extends Controller
 
             Sale::create($validatedData);
             return redirect()->route('penjualan.index')->with('success', 'Data berhasil ditambahkan!');
-        } 
+        }
         else {
             // toastr()->error('Oops! Quantity melebihi stock yang tersedia');
             return back()->with('error', 'Quantity melebihi stock yang tersedia');
@@ -125,9 +130,9 @@ class SaleController extends Controller
             'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
         ], $message);
-        
+
         $barang = Stock::where('id', $request->stock_id)->first();
-        
+
         $validatedData['total'] = $validatedData['stock_sold'] * $barang->price;
 
         // JIKA TOTAL QUANTITY STOK LEBIH BANYAK SAMADENGAN QUANTITY YANG DIINPUT
@@ -174,7 +179,7 @@ class SaleController extends Controller
             Sale::where('id', $id)->update($validatedData);
 
             return redirect()->route('penjualan.index')->with('success', 'Data berhasil diubah!');
-        } // JIKA QUANTITY YANG DIINPUTKAN LEBIH BESAR DIBANDING TOTAL STOK 
+        } // JIKA QUANTITY YANG DIINPUTKAN LEBIH BESAR DIBANDING TOTAL STOK
         else {
             // toastr()->error('Oops! Quantity melebihi stock yang tersedia');
             return back()->with('error', 'Quantity melebihi stock yang tersedia');
@@ -189,7 +194,7 @@ class SaleController extends Controller
     public function destroy(Sale $sale, $id)
     {
         $sale = Sale::find($id);
-        
+
         $barang = Stock::where('id', $sale->stock_id)->first();
 
         $quantity = $barang->quantity + $sale->stock_sold;
