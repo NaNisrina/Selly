@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ExpenseController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sale;
+use App\Models\Expense;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -11,7 +13,15 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        return view('pengeluaran');
+        $pengeluaran = Expense::orderBy('date')->get()->groupBy('date');
+        $penjualans = Sale::all();
+        $pengeluarans = Expense::all();
+        return view('pengeluaran', [
+            'totalPenjualan' => $penjualans->sum('total'),
+            'pengeluarans' => $pengeluaran,
+            'totalPengeluaran' => $pengeluarans->sum('total'),
+            'kas' => $penjualans->sum('total') - $pengeluarans->sum('total')
+        ]);
     }
 
     /**
@@ -19,7 +29,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -27,13 +37,36 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // CUSTOM MESSAGE
+        $message = [
+            'required' => ':attribute harus diisi',
+            'regex' => ':attribute tidak sesuai',
+            'min' => ':attribute minimal :min karakter',
+            'max' => ':attribute maksimal :max karakter'
+        ];
+
+        // VALIDASI
+        $validatedData = $request->validate([
+            'date' => 'required|before:tomorrow',
+            'item' => 'required',
+            'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
+            'price' => 'required|regex:/^[1-9][0-9]+$/|not_in:0'
+        ], $message);
+
+        $validatedData['total'] = $validatedData['quantity'] * $validatedData['price'];
+
+        // dd($validatedData);
+        // SIMPAN
+        Expense::create($validatedData);
+
+        return redirect()->route('pengeluaran.index')->with('success', 'Data berhasil ditambahkan!');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Expense $expense)
     {
         //
     }
@@ -41,7 +74,7 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Expense $expense)
     {
         //
     }
@@ -49,7 +82,7 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Expense $expense)
     {
         //
     }
@@ -57,7 +90,7 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Expense $expense)
     {
         //
     }
