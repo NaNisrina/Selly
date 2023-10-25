@@ -14,11 +14,14 @@ class SaleController extends Controller
     // HALAMAN PENJUALAN
     public function index()
     {
-        $sale = Sale::all();
-        return view('penjualan', [
-            'sales' => $sale,
-            'sum' => $sale->sum('total')
-        ]);
+        $sales = Sale::orderBy('date')->get()->groupBy('date');
+        // dd($sales);
+        return view('penjualan', compact('sales'));
+        // $sale = Sale::all();
+        // return view('penjualan', [
+        //     'sales' => $sale,
+        //     'sum' => $sale->sum('total')
+        // ]);
     }
 
     /**
