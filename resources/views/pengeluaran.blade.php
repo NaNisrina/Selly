@@ -172,7 +172,7 @@
                                                                     <a href="#" class="btn btn-light">
                                                                         {{-- text-dark border-0 --}}
                                                                         <i class="far fa-pen-to-square"></i></a>
-                                                                    <form action="" method="POST" class="d-inline">
+                                                                    <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST" class="d-inline">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button class="btn btn-light" type="submit"
