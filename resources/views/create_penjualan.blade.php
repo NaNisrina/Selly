@@ -31,84 +31,89 @@
                         <!-- Cardbody -->
                         <div class="card-body overflow-auto" style="width: 100%;" align="center">
                             @if (count($errors) > 0)
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $error }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        @endforeach
-                    @endif
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $error }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                @endforeach
+                            @endif
 
                             <div class="form-body my-3">
                                 <div class="container">
                                     {{-- <div class="form-holder"> --}}
-                                        <div class="form-content">
-                                            <div class="form-items">
-                                                {{-- <h3>Create New Data</h3>
+                                    <div class="form-content">
+                                        <div class="form-items">
+                                            {{-- <h3>Create New Data</h3>
                                                 <p>Fill in the data below.</p> --}}
 
-                                                <form action="{{ route('penjualan.store') }}" method="POST">
-                                                    @csrf
+                                            <form action="{{ route('penjualan.store') }}" method="POST">
+                                                @csrf
 
-                                                    {{-- <input type="hidden" name="{{  }}"> --}}
+                                                {{-- <input type="hidden" name="{{  }}"> --}}
 
-                                                    <div class="form-outline mb-2">
-                                                        <label for="date">Date</label>
+                                                <div class="form-outline mb-2">
+                                                    <label for="date">Date</label>
 
-                                                        {{-- <div class="input-group mb-2">
+                                                    {{-- <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <input class="form-control @error('date') is-invalid @enderror" type="date" id="date" name="date"
-                                                            placeholder="enter date..." required>
-                                                            @error('date')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        {{-- </div> --}}
-                                                    </div>
+                                                    <input class="form-control @error('date') is-invalid @enderror"
+                                                        type="date" id="date" name="date"
+                                                        placeholder="enter date..." required>
+                                                    @error('date')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                    {{-- </div> --}}
+                                                </div>
 
-                                                    <div class="form-outline mb-2">
-                                                        <label for="product_name">Product Name</label>
+                                                <div class="form-outline mb-2">
+                                                    <label for="product_name">Product Name</label>
 
-                                                        {{-- <div class="input-group mb-2">
+                                                    {{-- <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <select class="mt-0" name="stock_id" id="stock_id" onchange="halah()">
-                                                            <option value="" selected disabled >Product Name</option>
-                                                            @foreach ($stocks as $stock)
-                                                                <option value="{{ $stock->id }}">{{ $stock->product_name }} - {{ $stock->price }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                            @error('product_name')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        {{-- </div> --}}
-                                                    </div>
+                                                    <select class="mt-0" name="stock_id" id="stock_id"
+                                                        onchange="halah()">
+                                                        <option value="" selected disabled>Product Name</option>
+                                                        @foreach ($stocks as $stock)
+                                                            <option value="{{ $stock->id }}">{{ $stock->product_name }} -
+                                                                {{ $stock->price }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('product_name')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                    {{-- </div> --}}
+                                                </div>
 
 
-                                                    <div class="form-outline mb-2">
-                                                        <label for="quantity">Quantity</label>
+                                                <div class="form-outline mb-2">
+                                                    <label for="quantity">Quantity</label>
 
-                                                        {{-- <div class="input-group mb-2">
+                                                    {{-- <div class="input-group mb-2">
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">Pc</div>
                                                             </div> --}}
-                                                        <input type="number" id="stock_sold" name="stock_sold" class="form-control @error('stock_sold') is-invalid @enderror"
-                                                            placeholder="enter quantity sold..." required>
-                                                            @error('quantity')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                </div>
-                                                            @enderror
-                                                        {{-- </div> --}}
-                                                    </div>
+                                                    <input type="number" id="stock_sold" name="stock_sold"
+                                                        class="form-control @error('stock_sold') is-invalid @enderror"
+                                                        placeholder="enter quantity sold..." required>
+                                                    @error('quantity')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                    {{-- </div> --}}
+                                                </div>
 
-                                                    {{-- <div class="form-outline mb-2">
+                                                {{-- <div class="form-outline mb-2">
                                                         <label for="price">Price</label>
 
                                                         <input type="text" id="taudeh">
@@ -132,18 +137,18 @@
                                                         </div>
                                                     </div> --}}
 
-                                                    <div class="form-button mt-3 text-end">
-                                                        <button id="submit" type="submit" class="btn btn-success">
-                                                            Create
-                                                            {{-- <i class="fas fa-circle-plus"></i> --}}
-                                                        </button>
-                                                        <button id="reset" type="reset" class="btn btn-primary">
-                                                            Reset
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                <div class="form-button mt-3 text-end">
+                                                    <button id="submit" type="submit" class="btn btn-success">
+                                                        Create
+                                                        {{-- <i class="fas fa-circle-plus"></i> --}}
+                                                    </button>
+                                                    <button id="reset" type="reset" class="btn btn-primary">
+                                                        Reset
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
+                                    </div>
                                     {{-- </div> --}}
                                 </div>
                             </div>
@@ -166,7 +171,7 @@
             function myFunction() {
                 var value = document.getElementById("stock_id").value;
                 // document.getElementById("value").value = value;
-                return(value);
+                return (value);
             }
             // document.getElementById('taudeh').value = myFunction();
             return myFunction();

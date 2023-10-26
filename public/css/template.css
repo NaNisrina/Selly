@@ -33,6 +33,7 @@ body {
     color: var(--bs-card-color); */
 
     /* max-width: 18rem; */
+    /* height: 10rem; */
 }
 .card_kas {
     padding: 1rem;
@@ -172,7 +173,7 @@ html, body {
     font-weight: 300;
     color: #8D8D8D;
     outline: none;
-    resize: none;
+    /* resize: none; */
     height: 120px;
     -webkit-transition: none;
     transition: none;

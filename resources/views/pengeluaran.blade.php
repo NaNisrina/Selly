@@ -145,7 +145,7 @@
                                                     <tr>
                                                         <th class="border-top-0">#</th>
                                                         <th class="border-top-0">Date</th>
-                                                        <th class="border-top-0">Product</th>
+                                                        <th class="border-top-0">Item</th>
                                                         <th class="border-top-0">Price</th>
                                                         <th class="border-top-0" style="width:15%">Quantity</th>
                                                         <th class="border-top-0">Total</th>
@@ -155,7 +155,7 @@
                                                 <tbody>
 
                                                     <!-- Foreach -->
-                                                    @foreach ($pengeluarans as $date => $listpengeluaran)   
+                                                    @foreach ($pengeluarans as $date => $listpengeluaran)
                                                         @foreach ($listpengeluaran as $pengeluaran)
                                                             <tr>
                                                                 <td class="align-middle">{{ $loop->iteration }}</td>
@@ -169,7 +169,7 @@
                                                                 <td class="align-middle">{{ $pengeluaran->quantity }}</td>
                                                                 <td class="align-middle">Rp{{ number_format($pengeluaran->total, 2, ',', '.') }}</td>
                                                                 <td class="align-middle">
-                                                                    <a href="#" class="btn btn-light">
+                                                                    <a href="{{ route('pengeluaran.edit', $pengeluaran->id) }}" class="btn btn-light">
                                                                         {{-- text-dark border-0 --}}
                                                                         <i class="far fa-pen-to-square"></i></a>
                                                                     <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST" class="d-inline">
@@ -181,7 +181,7 @@
                                                                     </form>
                                                                 </td>
                                                             </tr>
-                                                        @endforeach 
+                                                        @endforeach
                                                         <tr>
                                                             <td colspan="4"></td>
 

@@ -29,7 +29,7 @@ class ExpenseController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -74,17 +74,41 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Expense $expense)
+    public function edit(Expense $expense, $id)
     {
-        //
+        $expense = Expense::find($id);
+        return view('edit_expense', [
+            'expense' => $expense
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request, Expense $expense, $id)
     {
-        //
+        // CUSTOM MESSAGE
+        $message = [
+            'required' => ':attribute harus diisi',
+            'regex' => ':attribute tidak sesuai',
+            'min' => ':attribute minimal :min karakter',
+            'max' => ':attribute maksimal :max karakter'
+        ];
+
+        // VALIDASI
+        $validatedData = $request->validate([
+            'date' => 'required|before:tomorrow',
+            'item' => 'required',
+            'quantity' => 'required|regex:/^[0-9]+$/|not_in:0',
+            'price' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
+        ], $message);
+
+        $validatedData['total'] = $validatedData['quantity'] * $validatedData['price'];
+
+        // UPDATE STOK
+        Expense::where('id', $id)->update($validatedData);
+
+        return redirect()->route('pengeluaran.index')->with('success', 'Data berhasil diupdate!');
     }
 
     /**

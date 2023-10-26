@@ -70,8 +70,11 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">@</div>
                                                     </div> --}}
-                                                <input class="mt-0 form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
-                                                    placeholder="enter name..." required>
+
+                                                <textarea class="mt-0 form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
+                                                    placeholder="enter description..."
+                                                    style="resize: vertical"
+                                                    required></textarea>
                                                     @error('product_description')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}

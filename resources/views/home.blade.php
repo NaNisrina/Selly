@@ -154,8 +154,8 @@
                             <h1 class="display-5 fw-bolder text-white mb-2 animate__animated animate__lightSpeedInRight">
                                 {{ $stock->product_name }}
                             </h1>
-                            <p class="lead fw-normal text-white mb-4">
-                                {{ $stock->product_description }}
+                            <p class="lead fw-normal text-white mb-4 text-wrap text-break">
+                                {!! nl2br(e($stock->product_description)) !!}
                             </p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                 <p class="lead fw-normal text-white mb-4 border border-white px-4 py-2 rounded">Stok : {{ $stock->quantity }} pcs</p>

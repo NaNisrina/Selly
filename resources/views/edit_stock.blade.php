@@ -1,5 +1,5 @@
 @extends('template')
-@section('page_title', 'Create Stok')
+@section('page_title', 'Edit Stok')
 
 @section('page_content')
 
@@ -82,8 +82,8 @@
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">@</div>
                                                             </div> --}}
-                                                        <input class="mt-0 form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
-                                                            placeholder="enter name..." value="{{ $stock->product_description }}" required>
+                                                        <textarea class="mt-0 form-control @error('product_description') is-invalid @enderror" type="text" id="product_description" name="product_description"
+                                                            placeholder="enter description..." value="" style="resize: vertical" required>{{ $stock->product_description }}</textarea>
                                                             @error('product_description')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -130,7 +130,7 @@
 
                                                     <div class="form-button mt-3 text-end">
                                                         <button id="submit" type="submit" class="btn btn-success">
-                                                            Create
+                                                            Edit
                                                             {{-- <i class="fas fa-circle-plus"></i> --}}
                                                         </button>
                                                         <button id="reset" type="reset" class="btn btn-primary">

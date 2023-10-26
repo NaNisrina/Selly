@@ -125,7 +125,7 @@
 
                                                     <div class="form-button mt-3 text-end">
                                                         <button id="submit" type="submit" class="btn btn-success">
-                                                            Create
+                                                            Edit
                                                             {{-- <i class="fas fa-circle-plus"></i> --}}
                                                         </button>
                                                         <button id="reset" type="reset" class="btn btn-primary">
