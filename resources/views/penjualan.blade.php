@@ -15,21 +15,64 @@
                     Penjualan
                 </h1>
 
-                <div class="col-lg-12 my-5">
+                <div class="col-lg-12">
                     <!-- Card -->
                     <div class="card-border-0">
                         <!-- Cardhead -->
                         <div class="card-header bg-dark text-white">
-                            <a href="{{ route('penjualan.create') }}" class="btn btn-success">
-                                Create
-                                <i class="ms-1 fas fa-circle-plus"></i>
-                            </a>
+
+                            <!-- KeuntunganCard -->
+                            <div class="row">
+                                <div class="col-4 mt-4 mb-3">
+                                    <div class="card_custom text-dark mb-3 card_kas">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold fs-4">Keuntungan</h5>
+                                            <hr>
+                                            <p class="fs-3 card-text fw-lighter">
+                                                Rp 0,00
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mt-4 mb-3">
+                                    <div class="card_custom text-dark mb-3 card_sale">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold fs-4">Penjualan</h5>
+                                            <hr>
+                                            <p class="fs-3 card-text fw-lighter">
+                                                Rp 0,00
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mt-4 mb-3">
+                                    <div class="card_custom text-dark mb-3 card_expense">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold fs-4">Produksi</h5>
+                                            <hr>
+                                            <p class="fs-3 card-text fw-lighter">
+                                                Rp 0,00
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /KeuntunganCard -->
+
+                            <div class="text-end">
+                                <a href="{{ route('penjualan.create') }}" class="btn btn-success">
+                                    Create
+                                    <i class="ms-1 fas fa-circle-plus"></i>
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Cardbody -->
-                        <div class="card-body my-4 t_border">
+                        <div class="card-body mt-0 t_border">
 
-                            <div class="card-body my-3" style="width: 100%;" align="center">
+                            <div class="card-body mb-3" style="width: 100%;" align="center">
 
                                 <div class="row">
                                     <div class="col-lg-12">
