@@ -29,7 +29,7 @@
                                             <h5 class="card-title fw-bold fs-4">Keuntungan</h5>
                                             <hr>
                                             <p class="fs-3 card-text fw-lighter">
-                                                Rp 0,00
+                                                Rp {{ number_format($keuntungan, 2, ',', '.') }}
                                             </p>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                             <h5 class="card-title fw-bold fs-4">Penjualan</h5>
                                             <hr>
                                             <p class="fs-3 card-text fw-lighter">
-                                                Rp 0,00
+                                                Rp {{ number_format($totalpenjualan, 2, ',', '.') }}
                                             </p>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                             <h5 class="card-title fw-bold fs-4">Produksi</h5>
                                             <hr>
                                             <p class="fs-3 card-text fw-lighter">
-                                                Rp 0,00
+                                                Rp {{ number_format($totalproduksi, 2, ',', '.') }}
                                             </p>
                                         </div>
                                     </div>
@@ -89,7 +89,8 @@
                                                                 <th class="border-top-0" scope="col">Date</th>
                                                                 <th class="border-top-0" scope="col">Product</th>
                                                                 <th class="border-top-0" scope="col">Quantity</th>
-                                                                <th class="border-top-0" scope="col">Price</th>
+                                                                <th class="border-top-0" scope="col">Harga Produksi</th>
+                                                                <th class="border-top-0" scope="col">Harga Jual</th>
                                                                 <th class="border-top-0" scope="col">Total</th>
                                                                 <th class="border-top-0" scope="col">Action</th>
                                                             </tr>
@@ -104,7 +105,8 @@
                                                                         <td class="align-middle">{{ $sale->stock->product_name }}</td>
                                                                         <td class="align-middle">{{ $sale->stock_sold }}</td>
                                                                         <td class="align-middle">Rp{{ number_format($sale->stock->price, 2, ',', '.') }}</td>
-                                                                        <td class="align-middle">Rp{{ number_format($sale->total, 2, ',', '.') }}</td>
+                                                                        <td class="align-middle">Rp{{ number_format($sale->harga_jual, 2, ',', '.') }}</td>
+                                                                        <td class="align-middle">Rp{{ number_format($sale->total_penjualan, 2, ',', '.') }}</td>
 
                                                                         <td class="align-middle">
 
@@ -130,7 +132,7 @@
                                                                     <td colspan="4"></td>
 
                                                                     <td>Daily</td>
-                                                                    <td colspan="2">Rp{{ number_format($sale_list->sum('total'), 2, ',', '.') }}</td>
+                                                                    <td colspan="3">Rp{{ number_format($sale_list->sum('total_penjualan'), 2, ',', '.') }}</td>
                                                                 </tr>
                                                             @endforeach
 
@@ -138,7 +140,7 @@
                                                                 <tr>
                                                                     <td colspan="4"></td>
                                                                     <td>All Sales</td>
-                                                                    <td colspan="2">Rp{{ number_format($sum, 2, ',', '.') }}</td>
+                                                                    <td colspan="3">Rp{{ number_format($totalpenjualan, 2, ',', '.') }}</td>
                                                                 </tr>
                                                         <!-- /TOTAL KESELURUHAN-->
 

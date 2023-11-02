@@ -15,9 +15,13 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::orderBy('date')->get()->groupBy('date');
+        $totalpenjualan = Sale::all()->sum('total_penjualan');
+        $totalproduksi = Sale::all()->sum('total_produksi');
         return view('penjualan', [
             'sales' => $sales,
-            'sum' => Sale::all()->sum('total')
+            'totalpenjualan' => $totalpenjualan,
+            'totalproduksi' => $totalproduksi,
+            'keuntungan' => $totalpenjualan - $totalproduksi
         ]);
 
         // dd($sales);
@@ -59,11 +63,13 @@ class SaleController extends Controller
             'date' => 'required|before:tomorrow',
             'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
+            'harga_jual' => 'required|regex:/^[1-9][0-9]+$/|not_in:0'
         ], $message);
 
         $barang = Stock::where('id', $request->stock_id)->first();
-
-        $validatedData['total'] = $validatedData['stock_sold'] * $barang->price;
+        
+        $validatedData['total_produksi'] = $validatedData['stock_sold'] * $barang->price;
+        $validatedData['total_penjualan'] = $validatedData['stock_sold'] * $validatedData['harga_jual'];
 
         // JIKA QUANTITY STOK LEBIH BESAR SAMADENGAN QUANTITY YANG DIINPUT
         if($barang->quantity >= $request->stock_sold) {
@@ -129,11 +135,13 @@ class SaleController extends Controller
             'date' => 'required|before:tomorrow',
             'stock_id' => 'required',
             'stock_sold' => 'required|regex:/^[0-9]+$/|not_in:0',
+            'harga_jual' => 'required|regex:/^[1-9][0-9].+$/|not_in:0'
         ], $message);
 
         $barang = Stock::where('id', $request->stock_id)->first();
 
-        $validatedData['total'] = $validatedData['stock_sold'] * $barang->price;
+        $validatedData['total_produksi'] = $validatedData['stock_sold'] * $barang->price;
+        $validatedData['total_penjualan'] = $validatedData['stock_sold'] * $validatedData['harga_jual'];
 
         // JIKA TOTAL QUANTITY STOK LEBIH BANYAK SAMADENGAN QUANTITY YANG DIINPUT
         if(($barang->quantity + $request->old_stock) >= $request->stock_sold) {

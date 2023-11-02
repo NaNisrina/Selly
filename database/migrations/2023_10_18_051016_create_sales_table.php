@@ -18,9 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('stock_id');
             $table->foreign('stock_id')->references('id')->on('stocks')
                 ->onUpdate('cascade')->onDelete('cascade'); // constraints;
-
             $table->integer('stock_sold');
-            $table->decimal('total', 12, 2);
+            $table->decimal('harga_jual', 12, 2);
+            $table->decimal('total_produksi', 12, 2);
+            $table->decimal('total_penjualan', 12, 2);
             $table->timestamps();
         });
     }

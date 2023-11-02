@@ -137,6 +137,24 @@
                                                         </div>
                                                     </div> --}}
 
+                                                <div class="form-outline mb-2">
+                                                    <label for="harga_jual">Harga Jual</label>
+
+                                                    {{-- <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">Pc</div>
+                                                                </div> --}}
+                                                    <input type="text" id="harga_jual" name="harga_jual"
+                                                        class="form-control @error('harga_jual') is-invalid @enderror"
+                                                        placeholder="masukkan harga jual..." required>
+                                                    @error('harga_jual')
+                                                        <div class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                    {{-- </div> --}}
+                                                </div>
+
                                                 <div class="form-button mt-3 text-end">
                                                     <button id="submit" type="submit" class="btn btn-success">
                                                         Create
