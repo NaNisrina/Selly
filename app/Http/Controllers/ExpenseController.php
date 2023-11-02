@@ -17,10 +17,10 @@ class ExpenseController extends Controller
         $penjualans = Sale::all();
         $pengeluarans = Expense::all();
         return view('pengeluaran', [
-            'totalPenjualan' => $penjualans->sum('total'),
+            'totalPenjualan' => $penjualans->sum('total_penjualan'),
             'pengeluarans' => $pengeluaran,
             'totalPengeluaran' => $pengeluarans->sum('total'),
-            'kas' => $penjualans->sum('total') - $pengeluarans->sum('total')
+            'kas' => $penjualans->sum('total_penjualan') - $pengeluarans->sum('total')
         ]);
     }
 
